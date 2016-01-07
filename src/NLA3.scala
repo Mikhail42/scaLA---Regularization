@@ -19,9 +19,8 @@ object NLA3 {
   
   /** \int_{a}^{b} {K(s,t)\phi(s)} \dd[s] = f(t) */
   def main(args: Array[String]): Unit = {
-    Data.BasicData.a
-    println("A = ")
-    println(LAfunction.MatrixFunction.IO.toString(A))
+    val str = "\nA = "+LAfunction.MatrixFunction.IO.toString(A)
+    println(str)
     println("cond_2(A)     = "+condA._1
       +(if (condA._2==null) "" else ". cond_2(A) не точно"))
     println("cond_2(A^T A) = "+condATA._1
@@ -47,7 +46,7 @@ object NLA3 {
     val qrFrame = new draw.MyFrame; frames(1) = (qrFrame, "QR")
     val lupFrame = new draw.MyFrame; frames(3) = (lupFrame, "LUP")
     val GSFrame = new draw.MyFrame; frames(2) = (GSFrame, "Gauss-Seidel")
-    1
+    
     for (frame <- frames) {
       try{
         for (i <- 0 until Data.Alpha.nBestSqrAlphas){
